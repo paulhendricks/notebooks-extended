@@ -10,7 +10,12 @@ build:
 	docker build -t notebooks-extended .
 
 run: build
-	docker run -p 8888:8888 -it notebooks-extended
+	docker run \
+	  --runtime "nvidia" \
+	  -it --rm \
+	  -p 8786:8786 -p 8787:8787 -p 8888:8888 \
+	  -v /datasets/rapids:/datasets/rapids \
+	  notebooks-extended
 
 login:
 	docker exec -it $(DOCKER_ID) bash
@@ -23,4 +28,8 @@ copy: clean
 
 convert:
 	jupyter nbconvert --to script foo.ipynb 
+
+launch:
+	source activate rapids && sh /rapids/notebooks/utils/start-jupyter.sh
+
 

@@ -21,4 +21,5 @@ RUN ln -s /data /rapids/notebooks/extended
 ADD tutorials /rapids/notebooks/extended/tutorials
 
 WORKDIR /rapids/notebooks/extended
+#CMD bash
 CMD source activate rapids && sh /rapids/notebooks/utils/start-jupyter.sh
