@@ -7,10 +7,11 @@ RUN apt-get update &&\
 
 SHELL ["/bin/bash", "-c"]
 RUN source activate rapids && conda install -y \
-        graphviz \
         matplotlib \
         scikit-learn \
         seaborn
+
+RUN source activate rapids && pip install graphvis
 
 # ToDo: let user supply kaggle creds
 RUN source activate rapids && pip install kaggle

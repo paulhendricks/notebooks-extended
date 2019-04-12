@@ -15,6 +15,7 @@ run: build
 	  -it --rm \
 	  -p 8786:8786 -p 8787:8787 -p 8888:8888 \
 	  -v /datasets/rapids:/datasets/rapids \
+	  -v /datasets/rapids_data:/datasets/rapids_data \
 	  notebooks-extended
 
 login:
