@@ -11,7 +11,7 @@ RUN source activate rapids && conda install -y \
         scikit-learn \
         seaborn
 
-RUN source activate rapids && pip install graphvis
+RUN source activate rapids && pip install graphviz
 
 # ToDo: let user supply kaggle creds
 RUN source activate rapids && pip install kaggle
